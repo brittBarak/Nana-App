@@ -29,6 +29,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, ClassifierCallback {
     private final String[] filePaths =
@@ -112,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-
     }
 
     private void setUI() {
@@ -149,6 +150,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (selectedImage != null) {
             imageView.setImageBitmap(selectedImage);
         }
+
+        parent.setContentDescription( "Image selected : "+ filePaths[position]);
+
 
     }
 
